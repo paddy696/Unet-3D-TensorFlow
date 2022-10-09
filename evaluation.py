@@ -23,8 +23,13 @@ OVERLAP_STEPSIZE = 8
 ################################################################################
 # Functions
 ################################################################################
+## One Hot Encoding Module
+def one_hot(label):
+	'''Convert label (d,h,w) to one-hot label (d,h,w,num_class).
+	'''
 
-
+	num_class = np.max(label) + 1
+	return np.eye(num_class)[label]
 
 def MHD_3D(pred, label):
 	'''Compute 3D MHD for a single class.
